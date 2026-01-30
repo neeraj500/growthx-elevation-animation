@@ -1,0 +1,9 @@
+.logo {
+  width: 220px;
+  height: auto;
+}
+
+.logo-fill {
+  fill: white;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+}
