@@ -1,9 +1,129 @@
-.logo {
-  width: 220px;
-  height: auto;
+:root {
+  --star-duration: 1.8s;
+  --outline-draw-duration: 2.2s;
+  --fill-sweep-duration: 2.8s;
 }
+
+/* SVG BASE */
+
+.logo {
+  width: 200px;
+  height: auto;
+  overflow: visible;
+}
+
+/* STAR ANIMATION */
 
 .logo-fill {
   fill: white;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
+  opacity: 0;
+}
+
+.playing .logo-fill {
+  animation: star-arrival
+    var(--star-duration)
+    cubic-bezier(0.16, 0.5, 0.3, 0.8)
+    forwards;
+}
+
+@keyframes star-arrival {
+  0% {
+    opacity: 0;
+    transform: translate(-40px, -25px) rotate(-180deg) scale(0.2);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(0.35);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(0.45);
+  }
+}
+
+/* EMBLEM BORDER DRAW */
+
+.logo-outline {
+  fill: none;
+  stroke: white;
+  stroke-width: 0.2;
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+}
+
+.playing .logo-outline.arm,
+.playing .logo-outline.top-edge {
+  animation: draw-border
+    5s
+    cubic-bezier(0.16, 0.5, 0.3, 0.5)
+    forwards;
+}
+
+@keyframes draw-border {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* EMBLEM FILL SWEEP  */
+
+.logo-fill-sweep {
+  fill: white;
+  transform: translateX(-90%) rotate(45deg);
+  transform-origin: center;
+}
+
+.playing .logo-fill-sweep {
+  animation: tilted-sweep 2.4s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes tilted-sweep {
+  to {
+    transform: translateX(20%) rotate(45deg);
+  }
+}
+
+/* TEXT REVEAL */
+
+.logo-text {
+  fill: white;
+  font-family: Inter, sans-serif;
+  font-size: 8px;
+  letter-spacing: 1.5em;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.playing .logo-text {
+  animation: text-rise
+    1.2s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+  animation-delay: 1.4s;
+}
+
+@keyframes text-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FINAL LAYOUT LIFT */
+
+.playing .layout-group {
+  animation: layout-lift
+    3s
+    cubic-bezier(0.16, 0.5, 0.3, 0.8)
+    forwards;
+  animation-delay: 1.6s;
+}
+
+@keyframes layout-lift {
+  to {
+    transform: translateY(-18px);
+  }
 }
