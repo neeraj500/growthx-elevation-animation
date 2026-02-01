@@ -1,10 +1,10 @@
 import "./App.css";
-import LogoSVG from "./animation/LogoSVG";
+import AnimationRoot from "./components/AnimationRoot";
 
 function App() {
   return (
     <>
-      <LogoSVG />
+      <AnimationRoot />
     </>
   );
 }
