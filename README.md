@@ -1,16 +1,56 @@
-# React + Vite
+# Logo Animation – React + SVG
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project recreates a brand-style logo animation using **React, SVG, and CSS animations**. The animation is fully code-driven (no Lottie), loads instantly, and can be replayed.
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**
+- **Vite**
+- **CSS (keyframes + transforms)**
+- **SVG**
 
-## React Compiler
+*No external animation libraries are used.*
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Project Structure
 
-## Expanding the ESLint configuration
+```
+src/
+├─ animation/
+│  └─ LogoSVG.jsx        # SVG structure & layout
+├─ components/
+│  └─ AnimationRoot.jsx  # Replay logic
+├─ logo.css              # All animation styles & keyframes
+├─ App.jsx
+├─ main.jsx
+└─ index.css
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Prerequisites
+
+- **Node.js** ≥ 16  
+- **npm** (bundled with Node.js)
+
+Check versions:
+```bash
+node -v
+npm -v
+```
+
+Clone the repository and install dependencies:
+```bash
+git clone <your-repo-url>
+dd <your-repo-name>
+```
+Install dependencies:
+```bash
+yarn install OR npm install  # depending on your package manager preference 
+```
+Start the dev server:
+```bash
+yarn dev OR npm run dev  # depending on your setup 
+```
+Open in browser: [http://localhost:5173](http://localhost:5173)
+
+---
+## AI Usage 
+AI tools (ChatGPT, Gemini) were used to reason about SVG path behavior, animation sequencing, and to refine code structure and documentation. All decisions were manually reviewed and applied.
