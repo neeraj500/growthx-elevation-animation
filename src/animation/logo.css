@@ -33,7 +33,7 @@
     transform: translate(-40px, -25px) rotate(0deg) scale(0.04);
   }
 
-  6% {
+  8% {
     opacity: 1;
     transform: translate(-40px, -25px) rotate(-8deg) scale(0.1);
   }
