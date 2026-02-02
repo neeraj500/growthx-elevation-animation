@@ -1,5 +1,5 @@
 :root {
-  --star-duration: 1.8s;
+  --star-duration: 4.5s;
   --outline-draw-duration: 2.2s;
   --fill-sweep-duration: 2.8s;
 }
@@ -25,40 +25,54 @@
     cubic-bezier(0.16, 0.5, 0.3, 0.8)
     forwards;
 }
+/* STAR ANIMATION KEYFRAMES */
 
 @keyframes star-arrival {
   0% {
     opacity: 0;
-    transform: translate(-40px, -25px) rotate(-180deg) scale(0.2);
+    transform: translate(-40px, -25px) rotate(0deg) scale(0.04);
   }
 
-  80% {
+  6% {
     opacity: 1;
-    transform: translate(0, 0) rotate(0deg) scale(0.35);
+    transform: translate(-40px, -25px) rotate(-8deg) scale(0.1);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(172deg) scale(0.32);
   }
 
   100% {
     opacity: 1;
-    transform: translate(0, 0) rotate(0deg) scale(0.45);
+    transform: translate(0, 0) rotate(180deg) scale(0.45);
   }
 }
+
 
 /* EMBLEM BORDER DRAW */
 
 .logo-outline {
   fill: none;
   stroke: white;
-  stroke-width: 0.2;
+  stroke-width: 0.3;
   stroke-dasharray: 180;
   stroke-dashoffset: 180;
 }
 
-.playing .logo-outline.arm,
+.playing .logo-outline.arm {
+animation: draw-border
+    1s /* Slightly shorter duration makes the snap feel more energetic */
+    cubic-bezier(0.9, 0, 0.4, 1) 
+    forwards;
+}
+
 .playing .logo-outline.top-edge {
   animation: draw-border
-    5s
-    cubic-bezier(0.16, 0.5, 0.3, 0.5)
+    1s
+    cubic-bezier(0.52, 0, 0.14, 1)
     forwards;
+    animation-delay: 0.3s;
 }
 
 @keyframes draw-border {
@@ -99,7 +113,7 @@
 
 .playing .logo-text {
   animation: text-rise
-    1.2s
+    2.2s
     cubic-bezier(0.16, 1, 0.3, 1)
     forwards;
   animation-delay: 1.4s;
@@ -119,7 +133,7 @@
     3s
     cubic-bezier(0.16, 0.5, 0.3, 0.8)
     forwards;
-  animation-delay: 1.6s;
+  animation-delay: 1s;
 }
 
 @keyframes layout-lift {
